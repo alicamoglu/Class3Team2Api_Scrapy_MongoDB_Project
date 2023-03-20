@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>humidity (1).png</file>
+    <file>resilience.png</file>
+    <file>wind.png</file>
+    <file>season.png</file>
+  </qresource>
+</RCC>
