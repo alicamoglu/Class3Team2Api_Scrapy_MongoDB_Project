@@ -14,6 +14,7 @@ class AppSpider(scrapy.Spider):
             #scraping region from the website
             region = result.xpath(".//td[7]/a/text()").get()
             city = result.xpath(".//td[2]/a/text()").get()
+            population = result.xpath(".//td[6]/text()").get()
             if region == None:
                 region= result.xpath(".//td[7]/text()").get()
                 
@@ -24,8 +25,8 @@ class AppSpider(scrapy.Spider):
             yield{
                 "country" : "Netherland",
                 "region" :region, #('\s+', ' ', description.strip()) | content = re.sub(r"^\s+|\s+$|\n", "",cont)
-                "city" : city
+                "city" : city,
+                "population" : population
             }
 
     
-            
