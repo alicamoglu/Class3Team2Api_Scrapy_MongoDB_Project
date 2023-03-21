@@ -15,6 +15,7 @@ class AmericaSpider(scrapy.Spider):
                 
             city = result.xpath(".//td[1]/i/a/text()").get() #//table[@class="wikitable sortable"]/tbody/tr/td/i/a/text()
             region = result.xpath(".//td[2]/a/text()").get()
+            population = result.xpath(".//td[3]/text()").get()
             
             if city == None:
                 city= result.xpath(".//td[1]/i/b/a/text()").get()
@@ -29,5 +30,6 @@ class AmericaSpider(scrapy.Spider):
             yield{
                 "country" : "USA",
                 "region" :region, #('\s+', ' ', description.strip()) | content = re.sub(r"^\s+|\s+$|\n", "",cont)
-                "city" : city
+                "city" : city,
+                "population" : population
             }
