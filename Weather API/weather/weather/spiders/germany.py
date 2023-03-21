@@ -13,11 +13,12 @@ class GermanySpider(scrapy.Spider):
             #scraping region from the website 
             city = result.xpath(".//td[2]/a/text()").get()
             region = result.xpath(".//td[9]/text()").get()
-                       
+            population = result.xpath(".//td[8]/text()").get()                       
                             
             #making a yield
             yield{
                 "country" : 'Germany',
                 "region" :region, 
-                "city" : city
+                "city" : city,
+                "population":population
                 }
