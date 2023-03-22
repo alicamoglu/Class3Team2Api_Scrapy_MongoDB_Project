@@ -8,7 +8,7 @@ class AmericaSpider(scrapy.Spider):
 
     def parse(self, response):
      
-        results = response.xpath("//table[@class='wikitable sortable'][1]/tbody/tr") #en.wikipedia
+        results = response.xpath("//table[@class='wikitable sortable'][1]/tbody/tr")[2:] #en.wikipedia
        
         for result in results:
             #scraping region from the website
@@ -31,5 +31,5 @@ class AmericaSpider(scrapy.Spider):
                 "country" : "USA",
                 "region" :region, #('\s+', ' ', description.strip()) | content = re.sub(r"^\s+|\s+$|\n", "",cont)
                 "city" : city,
-                "population" : population
+                "population" : population.replace('\n','')
             }
