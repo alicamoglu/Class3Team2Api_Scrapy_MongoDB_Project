@@ -7,7 +7,7 @@ class GermanySpider(scrapy.Spider):
     start_urls = ["https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland"]
 
     def parse(self, response):
-        results = response.xpath("//table[@class='wikitable sortable zebra'][2]/tbody/tr") #en.wikipedia
+        results = response.xpath("//table[@class='wikitable sortable zebra'][2]/tbody/tr")[2:] #en.wikipedia
        
         for result in results:
             #scraping region from the website 
@@ -18,7 +18,7 @@ class GermanySpider(scrapy.Spider):
             #making a yield
             yield{
                 "country" : 'Germany',
-                "region" :region, 
+                "region" :region.replace('\n',''), 
                 "city" : city,
                 "population":population
                 }

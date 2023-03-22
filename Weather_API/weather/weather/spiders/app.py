@@ -8,7 +8,7 @@ class AppSpider(scrapy.Spider):
     start_urls = ['https://tr.wikipedia.org/wiki/Hollanda%27daki_%C5%9Fehirler_listesi']
 
     def parse(self, response):
-        results = response.xpath("//table[@class='wikitable sortable']/tbody/tr") #tr.wikipedia
+        results = response.xpath("//table[@class='wikitable sortable']/tbody/tr")[2:] #tr.wikipedia
        
         for result in results:
             #scraping region from the website
@@ -24,7 +24,7 @@ class AppSpider(scrapy.Spider):
             #making a yield
             yield{
                 "country" : "Netherland",
-                "region" :region, #('\s+', ' ', description.strip()) | content = re.sub(r"^\s+|\s+$|\n", "",cont)
+                "region" :region.replace('\n',''),
                 "city" : city,
                 "population" : population
             }
