@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\90506\Documents\GitHub\Class3Team2Api_Scrapy_MongoDB_Project\weather\weather_proje.ui'
+# Form implementation generated from reading ui file 'c:\Users\90506\Desktop\weather\weather_proje.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #

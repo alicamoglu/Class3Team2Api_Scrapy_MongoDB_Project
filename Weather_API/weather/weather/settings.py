@@ -90,3 +90,14 @@ ROBOTSTXT_OBEY = True
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+
+ITEM_PIPELINES = {
+    'scrapy_mongodb.MongoDBPipeline': 300,
+}
+
+MONGODB_URI = 'mongodb+srv://sumeyra:1234@cluster0.rvan9sx.mongodb.net/?retryWrites=true&w=majority'
+MONGODB_DATABASE = 'weather_app'
+MONGODB_COLLECTION = 'america'  
+MONGODB_COLLECTION = 'germany' 
+MONGODB_COLLECTION = 'netherland' 
