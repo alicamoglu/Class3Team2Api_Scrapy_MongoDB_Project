@@ -481,7 +481,7 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTableWidget" name="tableWidget">
+   <widget class="QTableWidget" name="table_cities">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -490,16 +490,31 @@
       <height>581</height>
      </rect>
     </property>
-    <column>
+    <row>
      <property name="text">
-      <string>New Column</string>
+      <string>1</string>
      </property>
-    </column>
+    </row>
+    <row>
+     <property name="text">
+      <string>2</string>
+     </property>
+    </row>
     <column>
      <property name="text">
       <string>City</string>
      </property>
     </column>
+    <item row="0" column="0">
+     <property name="text">
+      <string>konya</string>
+     </property>
+    </item>
+    <item row="1" column="0">
+     <property name="text">
+      <string>ankara</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -508,7 +523,7 @@
      <x>0</x>
      <y>0</y>
      <width>988</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
