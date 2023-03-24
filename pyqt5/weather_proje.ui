@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
+    <width>988</width>
     <height>874</height>
    </rect>
   </property>
@@ -17,9 +17,9 @@
    <widget class="QComboBox" name="comboBox_country">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>240</y>
-      <width>181</width>
+      <x>40</x>
+      <y>150</y>
+      <width>331</width>
       <height>41</height>
      </rect>
     </property>
@@ -52,34 +52,11 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="comboBox_city">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>240</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Bahnschrift SemiBold SemiConden</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>Select A City</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QLabel" name="label_city_name">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>310</y>
+      <x>670</x>
+      <y>20</y>
       <width>211</width>
       <height>71</height>
      </rect>
@@ -99,8 +76,8 @@
    <widget class="QLabel" name="label_appname">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>90</y>
+      <x>170</x>
+      <y>20</y>
       <width>351</width>
       <height>71</height>
      </rect>
@@ -126,10 +103,10 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>410</y>
-      <width>661</width>
-      <height>131</height>
+      <x>610</x>
+      <y>350</y>
+      <width>331</width>
+      <height>421</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -147,10 +124,10 @@
     <widget class="QLabel" name="label_temperature">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>50</y>
-       <width>101</width>
-       <height>51</height>
+       <x>170</x>
+       <y>60</y>
+       <width>131</width>
+       <height>71</height>
       </rect>
      </property>
      <property name="font">
@@ -168,8 +145,8 @@
     <widget class="QLabel" name="label_icon_pressure">
      <property name="geometry">
       <rect>
-       <x>560</x>
-       <y>40</y>
+       <x>250</x>
+       <y>290</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -181,7 +158,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/newPrefix/Downloads/resilience.png</pixmap>
+      <pixmap resource="test.qrc">:/newPrefix/resilience.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -190,20 +167,20 @@
     <widget class="QLabel" name="label_icon_huminity">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>40</y>
+       <x>60</x>
+       <y>290</y>
        <width>31</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-image: url(:/newPrefix/Downloads/humidity (1).png);</string>
+      <string notr="true">background-image: url(:/newPrefix/humidity (1).png);</string>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/newPrefix/Downloads/humidity (1).png</pixmap>
+      <pixmap resource="test.qrc">:/newPrefix/humidity (1).png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -212,8 +189,8 @@
     <widget class="QLabel" name="label_icon_wind">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>40</y>
+       <x>150</x>
+       <y>290</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -225,7 +202,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>:/newPrefix/Downloads/wind.png</pixmap>
+      <pixmap resource="test.qrc">:/newPrefix/wind.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -234,10 +211,10 @@
     <widget class="QLabel" name="label_huminity">
      <property name="geometry">
       <rect>
-       <x>390</x>
-       <y>90</y>
-       <width>51</width>
-       <height>31</height>
+       <x>40</x>
+       <y>340</y>
+       <width>61</width>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -255,10 +232,10 @@
     <widget class="QLabel" name="label_wind">
      <property name="geometry">
       <rect>
-       <x>460</x>
-       <y>90</y>
+       <x>130</x>
+       <y>340</y>
        <width>71</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -276,10 +253,10 @@
     <widget class="QLabel" name="label_pressure">
      <property name="geometry">
       <rect>
-       <x>550</x>
-       <y>90</y>
+       <x>230</x>
+       <y>340</y>
        <width>71</width>
-       <height>31</height>
+       <height>51</height>
       </rect>
      </property>
      <property name="font">
@@ -297,10 +274,10 @@
     <widget class="QLabel" name="label_weather_icon">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>71</width>
-       <height>61</height>
+       <x>50</x>
+       <y>50</y>
+       <width>101</width>
+       <height>101</height>
       </rect>
      </property>
      <property name="text">
@@ -308,35 +285,12 @@
      </property>
     </widget>
    </widget>
-   <widget class="QComboBox" name="comboBox_region">
-    <property name="geometry">
-     <rect>
-      <x>250</x>
-      <y>240</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Bahnschrift SemiBold SemiConden</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>Select A Region</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>590</y>
-      <width>451</width>
+      <x>580</x>
+      <y>110</y>
+      <width>381</width>
       <height>201</height>
      </rect>
     </property>
@@ -355,7 +309,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>60</x>
        <y>20</y>
        <width>271</width>
        <height>31</height>
@@ -441,32 +395,9 @@
     <widget class="QLabel" name="label_country_info">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>170</x>
        <y>80</y>
-       <width>111</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
-      </font>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_country_info_2">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>70</y>
-       <width>111</width>
+       <width>171</width>
        <height>21</height>
       </rect>
      </property>
@@ -487,9 +418,9 @@
     <widget class="QLabel" name="label_region_info">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>115</y>
-       <width>111</width>
+       <x>160</x>
+       <y>120</y>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>
@@ -510,9 +441,9 @@
     <widget class="QLabel" name="label_population_info">
      <property name="geometry">
       <rect>
-       <x>200</x>
+       <x>160</x>
        <y>160</y>
-       <width>111</width>
+       <width>181</width>
        <height>21</height>
       </rect>
      </property>
@@ -535,7 +466,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>90</y>
+      <y>20</y>
       <width>91</width>
       <height>81</height>
      </rect>
@@ -544,11 +475,31 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="weather/test.qrc">:/newPrefix/season.png</pixmap>
+     <pixmap resource="test.qrc">:/newPrefix/season.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
     </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>220</y>
+      <width>531</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>New Column</string>
+     </property>
+    </column>
+    <column>
+     <property name="text">
+      <string>City</string>
+     </property>
+    </column>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -556,15 +507,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>700</width>
-     <height>26</height>
+     <width>988</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="weather/test.qrc"/>
+  <include location="test.qrc"/>
+  <include location="test.qrc"/>
  </resources>
  <connections/>
 </ui>
