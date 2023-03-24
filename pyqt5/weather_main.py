@@ -1,22 +1,25 @@
 from PyQt5.QtWidgets import *
 import sys
-import requests
-import pymongo
-
-
+import requests, pymongo
+from pymongo import *
 from Ui_weather_proje import *
 
 class Main_Class(QMainWindow,  Ui_MainWindow):
     def __init__(self):
         super(Main_Class, self).__init__()
         self.setupUi(self)
-        self.table_cities.cellClicked.connect(self.get_weather)
-
+        
         
         self.client = pymongo.MongoClient("mongodb+srv://sumeyra:1234@cluster0.rvan9sx.mongodb.net/?retryWrites=true&w=majority")
         self.db = self.client["weather_app"]
         self.collection = self.db["weather_infos"]
+        self.city_germany = self.db["germany"]
+        self.city_america = self.db["america"]
+        self.city_netherland = self.db["netherland"]
     
+        self.table_cities.cellClicked.connect(self.get_weather)
+        self.comboBox_country.currentTextChanged.connect(self.get_cities)
+        
     def get_weather(self, row, column):
         current_row = self.table_cities.currentRow()
         current_column = self.table_cities.currentColumn()
@@ -54,7 +57,70 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.collection.insert_one(item)
         except pymongo.errors.WriteError as e:
             print("Save Error : ", e)
-
+    
+    def get_cities(self):
+        
+        selected_country = self.comboBox_country.currentText()
+        #print(selected_country)
+        if selected_country == "USA" :
+            self.get_america()
+        elif selected_country == "Germany":
+            self.get_germany()
+        elif selected_country == "Netherlands":
+            self.get_netherland()
+            
+            
+            
+    def get_germany(self):
+        data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
+        rows_data=[]
+        for result in data_cities:
+            rows_data.append(result)
+            
+       
+        row = 0
+        self.table_cities.setRowCount(len(rows_data))
+        for result in rows_data:
+            self.table_cities.setItem(row, 0, QtWidgets.QTableWidgetItem(result["city"]))
+            self.table_cities.setItem(row, 1, QtWidgets.QTableWidgetItem(result["region"]))
+            self.table_cities.setItem(row, 2, QtWidgets.QTableWidgetItem(str(result["population"])))
+            row +=1  
+            
+            
+       
+    def get_america(self):
+               
+        data_cities = self.city_america.find({"country" : "USA"},{'city' :1,'region':1,'population':1})
+        rows_data=[]
+        for result in data_cities:
+            rows_data.append(result)
+            
+        row = 0
+        self.table_cities.setRowCount(len(rows_data))
+        for result in rows_data:
+            self.table_cities.setItem(row, 0, QTableWidgetItem(result["city"]))
+            self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
+            self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
+            row +=1  
+        #for i in self.city_america.find():
+            #print(i)
+        
+    def get_netherland(self):
+        data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
+        rows_data=[]
+        for result in data_cities:
+            rows_data.append(result)
+            
+        row = 0
+        self.table_cities.setRowCount(len(rows_data))
+        for result in rows_data:
+            self.table_cities.setItem(row, 0, QTableWidgetItem(result["city"]))
+            self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
+            self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
+            row +=1  
+        
+         
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
@@ -62,7 +128,8 @@ if __name__ == "__main__":
     widget = QtWidgets.QStackedWidget()
     
     widget.addWidget(mainwindow)
-
+    widget.setFixedHeight(890)
+    widget.setFixedWidth(990)
     widget.show()
 
     try:
