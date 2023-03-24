@@ -412,7 +412,7 @@
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="text">
-      <string/>
+      <string>America</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_region_info">
