@@ -127,7 +127,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             return    
 
         selected_city = selected_items[0].text()
-        query = {"country": "Germany", "city": selected_city}
+        query = {"country": "Germany", "city": selected_city} #The text value of the selected item is assigned to the selected_city variable.
         city_info = self.city_germany.find_one(query)
         if not city_info:
             return
