@@ -19,7 +19,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     
         self.table_cities.cellClicked.connect(self.get_weather)
         self.comboBox_country.currentTextChanged.connect(self.get_cities)
-        self.table_cities.itemSelectionChanged.connect(self.get_selected_city_info)
+        self.table_cities.itemSelectionChanged.connect(self.get_city_info_germany)
+        self.table_cities.itemSelectionChanged.connect(self.get_city_info_netherland)
         
     def get_weather(self, row, column):
         current_row = self.table_cities.currentRow()
@@ -119,7 +120,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
             row +=1  
         
-    def get_selected_city_info(self):
+    def get_city_info_germany(self):
         selected_items = self.table_cities.selectedItems()
         if len(selected_items) == 0:
             return
@@ -132,7 +133,22 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
         self.label_country_info.setText("Germany")
         self.label_region_info.setText(city_info["region"])
-        self.label_population_info.setText(str(city_info["population"]))     
+        self.label_population_info.setText(str(city_info["population"])) 
+
+    def get_city_info_netherland(self):    
+        selected_items = self.table_cities.selectedItems()
+        if len(selected_items) == 0:
+            return
+        
+        selected_city = selected_items[0].text()
+        query = {"country": "Netherland", "city": selected_city}
+        city_info = self.city_netherland.find_one(query)
+        if not city_info:
+            return
+
+        self.label_country_info.setText("Netherland")
+        self.label_region_info.setText(city_info["region"])
+        self.label_population_info.setText(str(city_info["population"])) 
         
 
 if __name__ == "__main__":
