@@ -42,9 +42,9 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
 #fill the ui label
         self.label_temperature.setText(str(temp)+"°C")
-        self.label_huminity.setText(str(humidity))
-        self.label_wind.setText(str(wind_speed))
-        self.label_pressure.setText(str(pressure))
+        self.label_huminity.setText(str(humidity)+"%")
+        self.label_wind.setText(str(wind_speed)+" km/h")
+        self.label_pressure.setText(str(pressure)+" mb")
 
 # #insert to mongodb database
         item = {
