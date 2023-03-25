@@ -41,7 +41,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         pressure = weather_data.json()['main']['pressure']
 
 #fill the ui label
-        self.label_temperature.setText(str(temp)+"^C")
+        self.label_temperature.setText(str(temp)+"°C")
         self.label_huminity.setText(str(humidity))
         self.label_wind.setText(str(wind_speed))
         self.label_pressure.setText(str(pressure))
