@@ -127,13 +127,13 @@
        <x>170</x>
        <y>60</y>
        <width>131</width>
-       <height>71</height>
+       <height>91</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <family>Bahnschrift SemiBold</family>
-       <pointsize>24</pointsize>
+       <pointsize>28</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -234,7 +234,7 @@
       <rect>
        <x>130</x>
        <y>340</y>
-       <width>61</width>
+       <width>71</width>
        <height>51</height>
       </rect>
      </property>
