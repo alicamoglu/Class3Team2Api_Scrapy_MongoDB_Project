@@ -138,7 +138,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
     def get_city_info_netherland(self):    
         selected_items = self.table_cities.selectedItems()
-        if len(selected_items) == 0:   #If there is no selected item, the function terminates with return.
+        if len(selected_items) == 0:  
             return
         
         selected_city = selected_items[0].text()
@@ -153,7 +153,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
     def get_city_info_usa(self):    
         selected_items = self.table_cities.selectedItems()
-        if len(selected_items) == 0:   #If there is no selected item, the function terminates with return.
+        if len(selected_items) == 0:   
             return
         
         selected_city = selected_items[0].text()
