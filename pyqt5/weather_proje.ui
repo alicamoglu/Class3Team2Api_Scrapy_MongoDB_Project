@@ -293,8 +293,8 @@ background-color: rgb(48, 241, 241);</string>
       <rect>
        <x>30</x>
        <y>60</y>
-       <width>111</width>
-       <height>101</height>
+       <width>91</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="font">
@@ -675,7 +675,8 @@ background-color: rgb(48, 241, 241);</string>
  </widget>
  <resources>
   <include location="../../Weather API/test.qrc"/>
-  <include location="../../Weather API/test.qrc"/>
+  <include location="test.qrc"/>
+  <include location="test2.qrc"/>
  </resources>
  <connections/>
 </ui>

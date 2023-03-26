@@ -126,7 +126,7 @@ class Ui_MainWindow(object):
         self.label_weather_icon.setText("")
         self.label_weather_icon.setObjectName("label_weather_icon")
         self.label_icon_situation = QtWidgets.QLabel(self.frame)
-        self.label_icon_situation.setGeometry(QtCore.QRect(30, 60, 111, 101))
+        self.label_icon_situation.setGeometry(QtCore.QRect(30, 60, 91, 91))
         font = QtGui.QFont()
         font.setFamily("Bahnschrift SemiBold")
         font.setPointSize(10)
@@ -309,4 +309,5 @@ class Ui_MainWindow(object):
         self.label_source.setText(_translate("MainWindow", "About Country-region-city"))
         self.Button_find.setText(_translate("MainWindow", "Find"))
         self.label_8.setText(_translate("MainWindow", "City Search"))
+import test2_rc
 import test_rc
