@@ -660,6 +660,30 @@ background-color: rgb(48, 241, 241);</string>
      <string>City Search</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_city_name_show">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>80</y>
+      <width>341</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -667,7 +691,7 @@ background-color: rgb(48, 241, 241);</string>
      <x>0</x>
      <y>0</y>
      <width>990</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

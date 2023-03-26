@@ -28,7 +28,9 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         current_row = self.table_cities.currentRow()
         current_column = self.table_cities.currentColumn()
         city_name = self.table_cities.item(current_row, current_column).text()
-               
+
+        self.label_city_name_show.setText(city_name) 
+              
         api_key = '1c50e484391dc9fbbaa60f8c4ef4c22b'
         weather_data = requests.get(
             f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric")
