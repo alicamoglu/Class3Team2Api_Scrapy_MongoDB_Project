@@ -109,6 +109,10 @@
       <height>421</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(0, 85, 127);
+background-color: rgb(48, 241, 241);</string>
+    </property>
     <property name="frameShape">
      <enum>QFrame::Panel</enum>
     </property>
@@ -282,6 +286,30 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_icon_situation">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>111</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="test2.qrc">:/newPrefix/02d.png</pixmap>
      </property>
     </widget>
    </widget>
@@ -561,7 +589,7 @@
      <x>0</x>
      <y>0</y>
      <width>990</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -569,7 +597,7 @@
  </widget>
  <resources>
   <include location="../../Weather API/test.qrc"/>
-  <include location="../../Weather API/test.qrc"/>
+  <include location="test2.qrc"/>
  </resources>
  <connections/>
 </ui>
