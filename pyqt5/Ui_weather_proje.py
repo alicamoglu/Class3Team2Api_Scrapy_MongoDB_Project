@@ -134,7 +134,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_icon_situation.setFont(font)
         self.label_icon_situation.setText("")
-        self.label_icon_situation.setPixmap(QtGui.QPixmap(":/newPrefix/02d.png"))
+        # self.label_icon_situation.setPixmap(QtGui.QPixmap(":/newPrefix/02d.png"))
         self.label_icon_situation.setObjectName("label_icon_situation")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(620, 160, 351, 201))
