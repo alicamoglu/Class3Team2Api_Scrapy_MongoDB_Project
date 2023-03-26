@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\90506\Documents\GitHub\Class3Team2Api_Scrapy_MongoDB_Project\pyqt5\weather_proje.ui'
+# Form implementation generated from reading ui file 'c:\dataAnalyzeScience\pythonMain\Class3Team2Api_Scrapy_MongoDB_Project\pyqt5\weather_proje.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -52,7 +52,9 @@ class Ui_MainWindow(object):
         self.label_appname.setStyleSheet("color: rgb(0, 170, 255);")
         self.label_appname.setObjectName("label_appname")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(610, 380, 331, 421))
+        self.frame.setGeometry(QtCore.QRect(630, 380, 331, 421))
+        self.frame.setStyleSheet("background-color: rgb(0, 85, 127);\n"
+"background-color: rgb(48, 241, 241);")
         self.frame.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setLineWidth(2)
@@ -132,7 +134,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_icon_situation.setFont(font)
         self.label_icon_situation.setText("")
-        self.label_icon_situation.setPixmap(QtGui.QPixmap(":/newPrefix/13n.png"))
+        self.label_icon_situation.setPixmap(QtGui.QPixmap(":/newPrefix/02d.png"))
         self.label_icon_situation.setObjectName("label_icon_situation")
         self.frame_2 = QtWidgets.QFrame(self.centralwidget)
         self.frame_2.setGeometry(QtCore.QRect(620, 160, 351, 201))
@@ -303,4 +305,8 @@ class Ui_MainWindow(object):
         item = self.table_cities.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Population"))
         self.label_6.setText(_translate("MainWindow", "Last update:"))
+        self.label_7.setText(_translate("MainWindow", "İnformaiton Source : "))
+        self.label_source.setText(_translate("MainWindow", "About Country-region-city"))
+        self.Button_find.setText(_translate("MainWindow", "Find"))
+        self.label_8.setText(_translate("MainWindow", "City Search"))
 import test_rc
