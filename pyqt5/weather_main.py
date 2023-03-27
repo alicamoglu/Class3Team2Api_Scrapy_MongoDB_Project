@@ -25,6 +25,9 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.table_cities.itemSelectionChanged.connect(self.get_city_info_netherland)
         self.table_cities.itemSelectionChanged.connect(self.get_city_info_usa)
         self.Button_find.clicked.connect(self.search_city)
+        self.table_cities.setColumnWidth(0,160)
+        self.table_cities.setColumnWidth(1,160)
+        self.table_cities.setColumnWidth(2,170)
         
     def get_weather(self, row, column):
         current_row = self.table_cities.currentRow()
@@ -100,7 +103,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 1, QtWidgets.QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QtWidgets.QTableWidgetItem(str(result["population"])))
             row +=1   
-            
+        self.label_source.setText("https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland")    
        
     def get_america(self):
                
@@ -116,8 +119,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
             row +=1  
-        #for i in self.city_america.find():
-            #print(i)
+        self.label_source.setText("https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population")
         
     def get_netherland(self):
         data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
@@ -132,7 +134,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
             row +=1  
-        
+        self.label_source.setText("https://tr.wikipedia.org/wiki/Hollanda%27daki_%C5%9Fehirler_listesi")
+         
     def get_city_info_germany(self):
         selected_items = self.table_cities.selectedItems()
         if len(selected_items) == 0:  #If there is no selected item, the function terminates with return.
