@@ -3,6 +3,7 @@ import sys
 import requests, pymongo
 from pymongo import *
 from Ui_weather_proje import *
+from PyQt5.QtCore import QDateTime, Qt
 
 
 class Main_Class(QMainWindow,  Ui_MainWindow):
@@ -37,22 +38,25 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric")
         
 #parse json data
-        # print(weather_data.json())
+        
         weather = weather_data.json()['weather'][0]['main']
         temp = round(weather_data.json()['main']['temp'])
         humidity = weather_data.json()['main']['humidity']
         wind_speed = round(weather_data.json()['wind']['speed'],1)
         pressure = weather_data.json()['main']['pressure']
         icon = weather_data.json()['weather'][0]['icon']
+        datetime = QDateTime.currentDateTime()
         print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
-        print("-------------------------")                   # seperator
-        print(icon)                                          # here for check in console if it brings accurate weather situation icon
+        #print("-------------------------")                   # seperator
+        #print(icon)                                          # here for check in console if it brings accurate weather situation icon
+
 #fill the ui label
         self.label_temperature.setText(str(temp)+"°C")
         self.label_huminity.setText(str(humidity)+"%")
         self.label_wind.setText(str(wind_speed)+" km/h")
         self.label_pressure.setText(str(pressure)+" mb")
         self.label_icon_situation.setPixmap(QtGui.QPixmap(f":/newPrefix/{icon}.png"))     #label_icon_situation is send here
+        self.label_update.setText(datetime.toString(Qt.DefaultLocaleLongDate)) # label_update is send here
 
 # #insert to mongodb database
         item = {
