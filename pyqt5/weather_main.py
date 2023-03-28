@@ -230,71 +230,82 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_population_info.clear()
         self.label_source.clear()
         self.label_city_name.clear()
+        self.label_temperature.clear()
+        self.label_huminity.clear()
+        self.label_wind.clear()
+        self.label_pressure.clear()
+        self.label_update.clear()
         self.city = self.lineEdit_city.text()
         if len(self.city) == 0 :
             return
         
-       
-        search_city_german= self.city_germany.find({"city": self.city},{"city" : 1, "region" :1, "population" :1})
+        
+        search_city_germany= self.city_germany.find({"city": self.city},{"city" : 1, "region" :1, "population" :1})
         search_city_netherland= self.city_netherland.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
         search_city_america= self.city_america.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
-        for x in search_city_german:
+        for x in search_city_germany:
             self.label_country_info.setText("Germany")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
             self.label_source.setText("https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland")
             self.label_city_name.setText(self.city) 
+            self.search_city_weather()
         for x in search_city_netherland:
             self.label_country_info.setText("Netherland")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
             self.label_city_name.setText(self.city)   
             self.label_source.setText("https://tr.wikipedia.org/wiki/Hollanda%27daki_%C5%9Fehirler_listesi") 
+            self.search_city_weather()
         for x in search_city_america:
             self.label_country_info.setText("USA")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
             self.label_city_name.setText(self.city)
             self.label_source.setText("https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population")
-        
-                  
-            api_key = '1c50e484391dc9fbbaa60f8c4ef4c22b'
-            weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={api_key}&units=metric")
+            self.search_city_weather()
             
+        
+            
+            
+    def search_city_weather(self):
+        api_key = '1c50e484391dc9fbbaa60f8c4ef4c22b'
+        weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={api_key}&units=metric")
+        
         #parse json data
-                # print(weather_data.json())
-            weather = weather_data.json()['weather'][0]['main']
-            temp = round(weather_data.json()['main']['temp'])
-            humidity = weather_data.json()['main']['humidity']
-            wind_speed = round(weather_data.json()['wind']['speed'],1)
-            pressure = weather_data.json()['main']['pressure']
-            icon = weather_data.json()['weather'][0]['icon']
-            datetime = QDateTime.currentDateTime()
-            print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
-            print("-------------------------")                   # seperator
-            print(icon)                                          # here for check in console if it brings accurate weather situation icon
-    #fill the ui label
-            self.label_temperature.setText(str(temp)+"°C")
-            self.label_huminity.setText(str(humidity)+"%")
-            self.label_wind.setText(str(wind_speed)+" km/h")
-            self.label_pressure.setText(str(pressure)+" mb")
-            self.label_icon_situation.setPixmap(QtGui.QPixmap(f":/newPrefix/{icon}.png"))     #label_icon_situation is send here
-            self.label_update.setText(datetime.toString(Qt.DefaultLocaleLongDate)) # label_update is send here
-    # #insert to mongodb database
-            item = {
-                "country" : self.label_country_info.text(),
-                "city_name" : self.city,
-                "temperature" : temp,
-                "humidity" : humidity,
-                "wind_speed" : wind_speed,
-                "pressure" : pressure
-            }
+            # print(weather_data.json())
+        weather = weather_data.json()['weather'][0]['main']
+        temp = round(weather_data.json()['main']['temp'])
+        humidity = weather_data.json()['main']['humidity']
+        wind_speed = round(weather_data.json()['wind']['speed'],1)
+        pressure = weather_data.json()['main']['pressure']
+        icon = weather_data.json()['weather'][0]['icon']
+        datetime = QDateTime.currentDateTime()
+        print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
+        print("-------------------------")                   # seperator
+        print(icon)                                          # here for check in console if it brings accurate weather situation icon
+        #fill the ui label
+        self.label_temperature.setText(str(temp)+"°C")
+        self.label_huminity.setText(str(humidity)+"%")
+        self.label_wind.setText(str(wind_speed)+" km/h")
+        self.label_pressure.setText(str(pressure)+" mb")
+        self.label_icon_situation.setPixmap(QtGui.QPixmap(f":/newPrefix/{icon}.png"))     #label_icon_situation is send here
+        self.label_update.setText(datetime.toString(Qt.DefaultLocaleLongDate)) # label_update is send here
+        # #insert to mongodb database
+        item = {
+            "country" : self.label_country_info.text(),
+            "city_name" : self.city,
+            "temperature" : temp,
+            "humidity" : humidity,
+            "wind_speed" : wind_speed,
+            "pressure" : pressure
+        }
 
-            try:
-                self.collection.insert_one(item)
-            except pymongo.errors.WriteError as e:
-                print("Save Error : ", e)     
-    
+        try:
+            self.collection.insert_one(item)
+        except pymongo.errors.WriteError as e:
+            print("Save Error : ", e)     
+
         
 
 if __name__ == "__main__":
