@@ -11,7 +11,7 @@ class GermanySpider(scrapy.Spider):
         self.collection = self.db["germany"]
 
     def parse(self, response):
-        results = response.xpath("//table[@class='wikitable sortable zebra'][2]/tbody/tr")[2:]
+        results = response.xpath("//table[@class='wikitable sortable zebra'][2]/tbody/tr")[1:]
        
         for result in results:
             #scraping region from the website
