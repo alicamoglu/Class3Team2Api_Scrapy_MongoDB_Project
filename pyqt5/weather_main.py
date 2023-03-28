@@ -8,11 +8,13 @@ from Ui_weather_proje import *
 from PyQt5.QtCore import QDateTime, Qt
 
 
+
 class Main_Class(QMainWindow,  Ui_MainWindow):
     def __init__(self):
         super(Main_Class, self).__init__()
         self.setupUi(self)
-        self.label_gif.setFixedSize(100,100)
+        self.label_gif.setFixedSize(100, 100)
+        
         
         
         self.client = pymongo.MongoClient("mongodb+srv://sumeyra:1234@cluster0.rvan9sx.mongodb.net/?retryWrites=true&w=majority")
@@ -23,6 +25,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.city_netherland = self.db["netherland"]
         self.movie = QtGui.QMovie("world.gif")
         self.movie.setScaledSize(QtCore.QSize(100, 100))
+        self.label_gif.setMovie(self.movie)
     
         self.table_cities.cellClicked.connect(self.get_weather)
         self.comboBox_country.currentTextChanged.connect(self.get_cities)
