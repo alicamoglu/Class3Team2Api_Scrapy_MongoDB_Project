@@ -1,0 +1,6 @@
+qtablewidget should go top by any filter
+filtre girişlerinin üzerine başlık eklenecek çerçeveye alınacak 
+'label_city_name_show'  in line 238 gives error with any pull comes to me
+liste başlıkları 1 2 3 diye geliyor
+"errors" is not a known member of module "pymongo"Pylancerepor
+search de şehir ismi gelmez oldu
