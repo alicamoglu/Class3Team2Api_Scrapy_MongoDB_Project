@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
         self.frame = QtWidgets.QFrame(self.centralwidget)
         self.frame.setGeometry(QtCore.QRect(630, 380, 331, 421))
         self.frame.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-"background-color: rgb(48, 241, 241);")
+"background-color: rgb(85, 170, 255);")
         self.frame.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setLineWidth(2)
