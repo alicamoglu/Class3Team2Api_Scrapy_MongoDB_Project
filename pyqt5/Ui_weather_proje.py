@@ -52,9 +52,13 @@ class Ui_MainWindow(object):
         self.label_appname.setStyleSheet("color: rgb(0, 170, 255);")
         self.label_appname.setObjectName("label_appname")
         self.frame = QtWidgets.QFrame(self.centralwidget)
+
         self.frame.setGeometry(QtCore.QRect(630, 390, 331, 291))
         self.frame.setStyleSheet("background-color: rgb(0, 85, 127);\n"
 "background-color: rgb(48, 241, 241);")
+
+
+
         self.frame.setFrameShape(QtWidgets.QFrame.Panel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setLineWidth(2)
