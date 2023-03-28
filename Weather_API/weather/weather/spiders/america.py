@@ -12,7 +12,7 @@ class AmericaSpider(scrapy.Spider):
         self.collection = self.db["america"]
 
     def parse(self, response):
-        results = response.xpath("//table[@class='wikitable sortable'][1]/tbody/tr")[2:]
+        results = response.xpath("//table[@class='wikitable sortable'][1]/tbody/tr")[1:]
        
         for result in results:
             #scraping region from the website
