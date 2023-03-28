@@ -703,7 +703,7 @@ background-color: rgb(48, 241, 241);</string>
     <property name="geometry">
      <rect>
       <x>620</x>
-      <y>80</y>
+      <y>90</y>
       <width>341</width>
       <height>51</height>
      </rect>
@@ -721,6 +721,19 @@ background-color: rgb(48, 241, 241);</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_gif">
+    <property name="geometry">
+     <rect>
+      <x>664</x>
+      <y>10</y>
+      <width>271</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>
