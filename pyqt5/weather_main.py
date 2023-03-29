@@ -25,9 +25,9 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.movie = QtGui.QMovie("world.gif")
         self.movie.setScaledSize(QtCore.QSize(100, 100))
         self.label_gif.setMovie(self.movie)
-        self.table_cities.setColumnWidth(0,150)
-        self.table_cities.setColumnWidth(1,120)
-        self.table_cities.setColumnWidth(2,170)
+        self.table_cities.setColumnWidth(0,170)
+        self.table_cities.setColumnWidth(1,170)
+        self.table_cities.setColumnWidth(2,150)
         
         self.table_cities.cellClicked.connect(self.get_weather)
         self.comboBox_country.currentTextChanged.connect(self.get_cities)
@@ -98,6 +98,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
             
     def get_germany(self):
+        self.lineEdit_city.clear()
         data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
         global rows_data
         rows_data=[]
@@ -115,6 +116,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_source.setText("https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland")    
        
     def get_america(self):
+        self.lineEdit_city.clear()
         global rows_data       
         data_cities = self.city_america.find({"country" : "USA"},{'city' :1,'region':1,'population':1})
         rows_data=[]
@@ -131,6 +133,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_source.setText("https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population")    
         
     def get_netherland(self):
+        self.lineEdit_city.clear()
         global rows_data
         data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
         rows_data=[]
@@ -236,6 +239,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_wind.clear()
         self.label_pressure.clear()
         self.label_update.clear()
+        self.label_weather.clear()
+        self.label_icon_situation.clear()
         self.city = self.lineEdit_city.text()
         if len(self.city) == 0 :
             return
@@ -282,10 +287,11 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         pressure = weather_data.json()['main']['pressure']
         icon = weather_data.json()['weather'][0]['icon']
         datetime = QDateTime.currentDateTime()
-        print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
-        print("-------------------------")                   # seperator
-        print(icon)                                          # here for check in console if it brings accurate weather situation icon
+        #print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
+        #print("-------------------------")                   # seperator
+        #print(icon)                                          # here for check in console if it brings accurate weather situation icon
         #fill the ui label
+        self.label_weather.setText(str(weather).upper())
         self.label_temperature.setText(str(temp)+"°C")
         self.label_huminity.setText(str(humidity)+"%")
         self.label_wind.setText(str(wind_speed)+" km/h")
