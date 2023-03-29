@@ -63,6 +63,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         #print("-------------------------")                   # seperator
         #print(icon)                                          # here for check in console if it brings accurate weather situation icon
 #fill the ui label
+        self.label_weather.setText(str(weather).upper())
         self.label_temperature.setText(str(temp)+"°C")
         self.label_huminity.setText(str(humidity)+"%")
         self.label_wind.setText(str(wind_speed)+" km/h")
