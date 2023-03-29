@@ -1,4 +1,4 @@
-import datetime
+mport datetime
 from PyQt5.QtWidgets import *
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QMovie
@@ -15,20 +15,22 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         super(Main_Class, self).__init__()
         self.setupUi(self)
         self.label_gif.setFixedSize(100, 100)
-        
+        #connect to MongoDb for taking contries info 
         self.client = pymongo.MongoClient("mongodb+srv://sumeyra:1234@cluster0.rvan9sx.mongodb.net/?retryWrites=true&w=majority")
         self.db = self.client["weather_app"]
         self.collection = self.db["weather_infos"]
         self.city_germany = self.db["germany"]
         self.city_america = self.db["america"]
         self.city_netherland = self.db["netherland"]
+        #
         self.movie = QtGui.QMovie("world.gif")
         self.movie.setScaledSize(QtCore.QSize(100, 100))
         self.label_gif.setMovie(self.movie)
+        #QtableWidget seting Column Width
         self.table_cities.setColumnWidth(0,170)
         self.table_cities.setColumnWidth(1,170)
         self.table_cities.setColumnWidth(2,150)
-        
+        #making signalslot 
         self.table_cities.cellClicked.connect(self.get_weather)
         self.comboBox_country.currentTextChanged.connect(self.get_cities)
         self.table_cities.itemSelectionChanged.connect(self.get_city_info_germany)
@@ -38,14 +40,14 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.Button_filter.clicked.connect(self.filter)
         self.label_gif.setMovie(self.movie)
         self.movie.start()
-        
+    #geting weather infos with API     
     def get_weather(self, row, column):
         current_row = self.table_cities.currentRow()
         current_column = self.table_cities.currentColumn()
         city_name = self.table_cities.item(current_row, current_column).text()
-
+        #geting city name to label 
         self.label_city_name.setText(city_name) 
-              
+        #connecting website for API    
         api_key = '1c50e484391dc9fbbaa60f8c4ef4c22b'
         weather_data = requests.get(
             f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric")
@@ -59,7 +61,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         pressure = weather_data.json()['main']['pressure']
         icon = weather_data.json()['weather'][0]['icon']
         datetime = QDateTime.currentDateTime()
-        print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
+        #print(weather_data.json())                            # here content of the weather_data is seen in console to nevigate for target data
         #print("-------------------------")                   # seperator
         #print(icon)                                          # here for check in console if it brings accurate weather situation icon
 #fill the ui label
@@ -84,7 +86,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.collection.insert_one(item)
         except pymongo.errors.WriteError as e:
             print("Save Error : ", e)
-    
+    #Making signal slot connections according to the selected country
     def get_cities(self):
         
         selected_country = self.comboBox_country.currentText()
@@ -96,7 +98,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         elif selected_country == "Netherlands":
             self.get_netherland()
 
-            
+    #getting country infos to QWidgetTable from mongoDB         
     def get_germany(self):
         self.lineEdit_city.clear()
         data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
@@ -105,7 +107,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         for result in data_cities:
             rows_data.append(result)
             
-       
+       #creating table row when germany selected
         row = 0
         self.table_cities.setRowCount(len(rows_data))
         for result in rows_data:
@@ -114,7 +116,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 2, QtWidgets.QTableWidgetItem(str(result["population"])))
             row +=1   
         self.label_source.setText("https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland")    
-       
+    #getting country infos to QWidgetTable from mongoDB        
     def get_america(self):
         self.lineEdit_city.clear()
         global rows_data       
@@ -122,7 +124,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         rows_data=[]
         for result in data_cities:
             rows_data.append(result)
-            
+        #creating table row when america selected 
         row = 0
         self.table_cities.setRowCount(len(rows_data))
         for result in rows_data:
@@ -131,7 +133,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
             row +=1  
         self.label_source.setText("https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population")    
-        
+    #getting country infos to QWidgetTable from mongoDB         
     def get_netherland(self):
         self.lineEdit_city.clear()
         global rows_data
@@ -139,7 +141,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         rows_data=[]
         for result in data_cities:
             rows_data.append(result)
-            
+        #creating table row when netherland selected    
         row = 0
         self.table_cities.setRowCount(len(rows_data))
         for result in rows_data:
@@ -228,7 +230,9 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_region_info.setText(city_info["region"])
         self.label_population_info.setText(str(city_info["population"]))    
     
+    #getting city infos which city is searching in search bar 
     def search_city(self):
+        #before searching ,clean all labels. When a city not in list, not coming any info and cleaning the previous city's infos
         self.label_country_info.clear()
         self.label_region_info.clear()
         self.label_population_info.clear()
@@ -242,13 +246,15 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_weather.clear()
         self.label_icon_situation.clear()
         self.city = self.lineEdit_city.text()
+        
         if len(self.city) == 0 :
             return
         
-        
+        # taking city, region and population info from countries  collections which is in  mongoDB to compare
         search_city_germany= self.city_germany.find({"city": self.city},{"city" : 1, "region" :1, "population" :1})
         search_city_netherland= self.city_netherland.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
         search_city_america= self.city_america.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
+        #searching the city information received from the user in country collections
         for x in search_city_germany:
             self.label_country_info.setText("Germany")
             self.label_region_info.setText(x["region"])
@@ -273,7 +279,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             
         
             
-            
+    #Getting the weather information of the city information entered by the user in the search bar         
     def search_city_weather(self):
         api_key = '1c50e484391dc9fbbaa60f8c4ef4c22b'
         weather_data = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={self.city}&appid={api_key}&units=metric")
@@ -330,4 +336,3 @@ if __name__ == "__main__":
 
     except:
         print("Exiting")
-    
