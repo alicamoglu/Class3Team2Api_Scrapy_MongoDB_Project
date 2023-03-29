@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\karakurt\Class3Team2_Weather_App-main\pyqt5\weather_proje.ui'
+# Form implementation generated from reading ui file 'c:\Users\karakurt\Downloads\Class3Team2_Weather_App-main\pyqt5\weather_proje.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -100,6 +100,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_huminity.setFont(font)
         self.label_huminity.setText("")
+        self.label_huminity.setAlignment(QtCore.Qt.AlignCenter)
         self.label_huminity.setObjectName("label_huminity")
         self.label_wind = QtWidgets.QLabel(self.frame)
         self.label_wind.setGeometry(QtCore.QRect(130, 220, 71, 51))
@@ -110,6 +111,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_wind.setFont(font)
         self.label_wind.setText("")
+        self.label_wind.setAlignment(QtCore.Qt.AlignCenter)
         self.label_wind.setObjectName("label_wind")
         self.label_pressure = QtWidgets.QLabel(self.frame)
         self.label_pressure.setGeometry(QtCore.QRect(230, 220, 61, 51))
@@ -120,6 +122,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_pressure.setFont(font)
         self.label_pressure.setText("")
+        self.label_pressure.setAlignment(QtCore.Qt.AlignCenter)
         self.label_pressure.setObjectName("label_pressure")
         self.label_weather_icon = QtWidgets.QLabel(self.frame)
         self.label_weather_icon.setGeometry(QtCore.QRect(40, 50, 101, 61))
