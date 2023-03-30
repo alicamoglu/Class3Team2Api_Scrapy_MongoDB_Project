@@ -42,7 +42,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.movie.start()
         #Set source label is having link
         self.label_source.setOpenExternalLinks(True)
-
+        self.rows_data = []
         self.source_label_netharlands_link = "<a href=\"https://tr.wikipedia.org/wiki/Hollanda%27daki_%C5%9Fehirler_listesi\">Click for Source</a>"
         self.source_label_germany_link = "<a href=\"https://de.wikipedia.org/wiki/Liste_der_Gro%C3%9F-_und_Mittelst%C3%A4dte_in_Deutschland\">Click for Source</a>"
         self.source_label_usa_link = "<a href=\"https://en.wikipedia.org/wiki/List_of_United_States_cities_by_population\">Click for Source</a>"
@@ -106,15 +106,15 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     def get_germany(self):
         self.lineEdit_city.clear()
         data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
-        global rows_data            #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
-        rows_data=[]
+        #global rows_data            #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
+        #rows_data=[]
         for result in data_cities:
-            rows_data.append(result)
+            self.rows_data.append(result)
             
        #creating table row when germany selected
         row = 0
-        self.table_cities.setRowCount(len(rows_data))
-        for result in rows_data:
+        self.table_cities.setRowCount(len(self.rows_data))
+        for result in self.rows_data:
             self.table_cities.setItem(row, 0, QtWidgets.QTableWidgetItem(result["city"]))
             self.table_cities.setItem(row, 1, QtWidgets.QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QtWidgets.QTableWidgetItem(str(result["population"])))
@@ -123,18 +123,18 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     #getting country infos to QWidgetTable from mongoDB        
     def get_america(self):
 
-        global rows_data             #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
+        #global rows_data             #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
 
         self.lineEdit_city.clear()
 
         data_cities = self.city_america.find({"country" : "USA"},{'city' :1,'region':1,'population':1})
-        rows_data=[]
+        #rows_data=[]
         for result in data_cities:
-            rows_data.append(result)
+            self.rows_data.append(result)
         #creating table row when america selected 
         row = 0
-        self.table_cities.setRowCount(len(rows_data))
-        for result in rows_data:
+        self.table_cities.setRowCount(len(self.rows_data))
+        for result in self.rows_data:
             self.table_cities.setItem(row, 0, QTableWidgetItem(result["city"]))
             self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
@@ -143,18 +143,18 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     #getting country infos to QWidgetTable from mongoDB         
     def get_netherland(self):
 
-        global rows_data           #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
+        #global rows_data           #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
 
         self.lineEdit_city.clear()
 
         data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
-        rows_data=[]
+        #rows_data=[]
         for result in data_cities:
-            rows_data.append(result)
+            self.rows_data.append(result)
         #creating table row when netherland selected    
         row = 0
-        self.table_cities.setRowCount(len(rows_data))
-        for result in rows_data:
+        self.table_cities.setRowCount(len(self.rows_data))
+        for result in self.rows_data:
             self.table_cities.setItem(row, 0, QTableWidgetItem(result["city"]))
             self.table_cities.setItem(row, 1, QTableWidgetItem(result["region"]))
             self.table_cities.setItem(row, 2, QTableWidgetItem(str(result["population"])))
@@ -163,7 +163,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         
         
     def filter(self):
-        self.table_cities.clear()                 
+        self.table_cities.clear()  
+        #print(self.rows_data)               
         # data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
         # rows_data=[]                              # rows_data is used from the methods get_germany,get_america or get_netherland which runs generates data last therefore her
         # for result in data_cities:                # the rows_data is renewed when user chooses country everytime country and by filter is also used the same data  
@@ -179,8 +180,26 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         if len(filterEnteryRegion) != 0:
             CapitalRegionFilter = filterEnteryRegion[0].upper() + filterEnteryRegion[1:len(filterEnteryRegion)].lower()
         row = 0
-        self.table_cities.setRowCount(len(rows_data))
-        for result in rows_data:
+        self.table_cities.setRowCount(len(self.rows_data))
+
+        if self.rows_data == []:
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(":/icons/cloudy.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.messagebox=QtWidgets.QMessageBox()
+            self.messagebox.critical(self,'WARNING','lütfen bir ülke seçiniz')
+            self.messagebox.setWindowIcon(icon)
+
+
+            
+
+
+            # data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
+            # for result in data_cities:
+            #     self.rows_data.append(result)
+        #creating table row when netherland selected    
+        row = 0
+        self.table_cities.setRowCount(len(self.rows_data))
+        for result in self.rows_data:
 
             if (filterEnteryCity.lower() not in result["city"] and CapitalCityFilter not in result["city"]):
                 continue
