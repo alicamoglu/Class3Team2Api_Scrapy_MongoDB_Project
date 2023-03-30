@@ -212,7 +212,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             row +=1  
 
 
-    def get_city_info_germany(self):
+    def get_city_info_germany(self):     #This function retrieves information about a selected city in Germany from a MongoDB database and displays it on the GUI
         selected_items = self.table_cities.selectedItems()
         if len(selected_items) == 0:  #If there is no selected item, the function terminates with return.
             return    
@@ -220,7 +220,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         selected_city = selected_items[0].text()
         query = {"country": "Germany", "city": selected_city} #The text value of the selected item is assigned to the selected_city variable.
         city_info = self.city_germany.find_one(query)
-        if not city_info:
+        if not city_info:           
             return
 
         self.label_country_info.setText("Germany")
@@ -229,13 +229,13 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
 
     def get_city_info_netherland(self):    
         selected_items = self.table_cities.selectedItems()
-        if len(selected_items) == 0:  
+        if len(selected_items) == 0:  ##If there is no selected item, the function terminates with return.
             return
         
         selected_city = selected_items[0].text()
         query = {"country": "Netherland", "city": selected_city}
         city_info = self.city_netherland.find_one(query)
-        if not city_info:
+        if not city_info:              # If no information is found, the function returns without doing anything
             return
 
         self.label_country_info.setText("Netherland")
