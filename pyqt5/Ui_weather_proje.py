@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'c:\Users\90506\Desktop\Class3Team2_Weather_App-1\pyqt5\weather_proje.ui'
+# Form implementation generated from reading ui file 'c:\Users\qwert\OneDrive\Masaüstü\DATA SCIENCE\PROJECTS\PROJECT-3\Class3Team2_Weather_App\pyqt5\weather_proje.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -339,7 +339,7 @@ class Ui_MainWindow(object):
         self.label_10.setFont(font)
         self.label_10.setObjectName("label_10")
         self.label_gif = QtWidgets.QLabel(self.centralwidget)
-        self.label_gif.setGeometry(QtCore.QRect(660, 20, 271, 81))
+        self.label_gif.setGeometry(QtCore.QRect(680, 10, 151, 81))
         self.label_gif.setText("")
         self.label_gif.setObjectName("label_gif")
         MainWindow.setCentralWidget(self.centralwidget)
