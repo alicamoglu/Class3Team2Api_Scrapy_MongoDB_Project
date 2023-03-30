@@ -255,29 +255,29 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             return
         
         # taking city, region and population info from countries  collections which is in  mongoDB to compare
-        search_city_germany= self.city_germany.find({"city": self.city},{"city" : 1, "region" :1, "population" :1})
-        search_city_netherland= self.city_netherland.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
-        search_city_america= self.city_america.find({"city": self.city},{"city" : 1,  "region" :1, "population" :1})
+        search_city_germany= self.city_germany.find({"city": self.city.title() },{"city" : 1, "region" :1, "population" :1})
+        search_city_netherland= self.city_netherland.find({"city": self.city.title() },{"city" : 1,  "region" :1, "population" :1})
+        search_city_america= self.city_america.find({"city": self.city.title() },{"city" : 1,  "region" :1, "population" :1})
         #searching the city information received from the user in country collections
         for x in search_city_germany:
             self.label_country_info.setText("Germany")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
             self.label_source.setText(self.source_label_germany_link)
-            self.label_city_name.setText(self.city) 
+            self.label_city_name.setText(x["city"]) 
             self.search_city_weather()
         for x in search_city_netherland:
             self.label_country_info.setText("Netherland")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
-            self.label_city_name.setText(self.city)   
+            self.label_city_name.setText(x["city"])   
             self.label_source.setText(self.source_label_netharlands_link)
             self.search_city_weather()
         for x in search_city_america:
             self.label_country_info.setText("USA")
             self.label_region_info.setText(x["region"])
             self.label_population_info.setText(str(x["population"]))
-            self.label_city_name.setText(self.city)
+            self.label_city_name.setText(x["city"])
             self.label_source.setText(self.source_label_usa_link) 
             self.search_city_weather()
             
