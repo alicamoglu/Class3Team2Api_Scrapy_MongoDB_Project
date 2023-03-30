@@ -186,7 +186,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
             icon = QtGui.QIcon()
             icon.addPixmap(QtGui.QPixmap(":/icons/cloudy.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
             self.messagebox=QtWidgets.QMessageBox()
-            self.messagebox.critical(self,'WARNING','lütfen bir ülke seçiniz')
+            self.messagebox.critical(self,'WARNING','please select a country first!')
             self.messagebox.setWindowIcon(icon)
 
 
