@@ -687,20 +687,20 @@
      <rect>
       <x>30</x>
       <y>770</y>
-      <width>111</width>
+      <width>131</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Iınformaiton Source : </string>
+     <string>Iınformation Source : </string>
     </property>
    </widget>
    <widget class="QLabel" name="label_source">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>170</x>
       <y>770</y>
-      <width>451</width>
+      <width>411</width>
       <height>31</height>
      </rect>
     </property>
@@ -799,7 +799,7 @@
      <rect>
       <x>30</x>
       <y>190</y>
-      <width>121</width>
+      <width>161</width>
       <height>31</height>
      </rect>
     </property>
@@ -820,7 +820,7 @@
      <rect>
       <x>300</x>
       <y>190</y>
-      <width>141</width>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
@@ -856,7 +856,7 @@
      <x>0</x>
      <y>0</y>
      <width>990</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
