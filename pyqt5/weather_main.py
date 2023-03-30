@@ -254,8 +254,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         city_info = self.city_america.find_one(query)
         if not city_info:
             return
-
-        self.label_country_info.setText("USA")
+                                              #If information is found, it sets the text of three labels 
+        self.label_country_info.setText("USA")       #on the GUI to display the city's country, region, and population.
         self.label_region_info.setText(city_info["region"])
         self.label_population_info.setText(str(city_info["population"]))    
     
