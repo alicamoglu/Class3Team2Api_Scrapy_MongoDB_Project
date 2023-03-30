@@ -106,7 +106,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     def get_germany(self):
         self.lineEdit_city.clear()
         data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
-        global rows_data
+        global rows_data            #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
         rows_data=[]
         for result in data_cities:
             rows_data.append(result)
@@ -122,8 +122,11 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_source.setText(self.source_label_germany_link)    
     #getting country infos to QWidgetTable from mongoDB        
     def get_america(self):
+
+        global rows_data             #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
+
         self.lineEdit_city.clear()
-        global rows_data       
+
         data_cities = self.city_america.find({"country" : "USA"},{'city' :1,'region':1,'population':1})
         rows_data=[]
         for result in data_cities:
@@ -139,8 +142,11 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.label_source.setText(self.source_label_usa_link)    
     #getting country infos to QWidgetTable from mongoDB         
     def get_netherland(self):
+
+        global rows_data           #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
+
         self.lineEdit_city.clear()
-        global rows_data
+
         data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
         rows_data=[]
         for result in data_cities:
@@ -159,8 +165,8 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
     def filter(self):
         self.table_cities.clear()
         # data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
-        # rows_data=[]
-        # for result in data_cities:
+        # rows_data=[]                              # rows_data is used from the methods get_germany,get_america or get_netherland which runs generates data last therefore her
+        # for result in data_cities:                # the rows_data is renewed when user chooses country everytime country and by filter is also used the same data  
         #     rows_data.append(result)
         # rows_data = self.get_germany.rows_data   
         filterEnteryCity = self.lineEdit.text()  #self.city = self.lineEdit_city.text()
