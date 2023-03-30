@@ -107,7 +107,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.lineEdit_city.clear()
         data_cities = self.city_germany.find({"country" : "Germany"},{'city' :1,'region':1, 'population':1})
         #global rows_data            #this variable is used here and in other 2 more similar methods as global in order to the method filter use the same data in rows data by filter it after the country is chosen for QTableWidget list
-        #rows_data=[]
+        self.rows_data=[]
         for result in data_cities:
             self.rows_data.append(result)
             
@@ -128,7 +128,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.lineEdit_city.clear()
 
         data_cities = self.city_america.find({"country" : "USA"},{'city' :1,'region':1,'population':1})
-        #rows_data=[]
+        self.rows_data=[]
         for result in data_cities:
             self.rows_data.append(result)
         #creating table row when america selected 
@@ -148,7 +148,7 @@ class Main_Class(QMainWindow,  Ui_MainWindow):
         self.lineEdit_city.clear()
 
         data_cities = self.city_netherland.find({"country" : "Netherland"},{'city' :1,'region':1,'population':1})
-        #rows_data=[]
+        self.rows_data=[]
         for result in data_cities:
             self.rows_data.append(result)
         #creating table row when netherland selected    
