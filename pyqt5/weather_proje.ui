@@ -149,8 +149,8 @@
     <widget class="QLabel" name="label_icon_pressure">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>150</y>
+       <x>240</x>
+       <y>170</y>
        <width>41</width>
        <height>41</height>
       </rect>
@@ -171,8 +171,8 @@
     <widget class="QLabel" name="label_icon_huminity">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>150</y>
+       <x>50</x>
+       <y>170</y>
        <width>41</width>
        <height>41</height>
       </rect>
@@ -193,8 +193,8 @@
     <widget class="QLabel" name="label_icon_wind">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>150</y>
+       <x>140</x>
+       <y>170</y>
        <width>41</width>
        <height>41</height>
       </rect>
@@ -232,6 +232,9 @@
      <property name="text">
       <string/>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
     <widget class="QLabel" name="label_wind">
      <property name="geometry">
@@ -252,6 +255,9 @@
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="label_pressure">
@@ -274,6 +280,9 @@
      <property name="text">
       <string/>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
     <widget class="QLabel" name="label_weather_icon">
      <property name="geometry">
@@ -281,7 +290,7 @@
        <x>40</x>
        <y>50</y>
        <width>101</width>
-       <height>101</height>
+       <height>61</height>
       </rect>
      </property>
      <property name="text">
@@ -312,13 +321,73 @@
       <pixmap resource="test2.qrc">:/newPrefix/02d.png</pixmap>
      </property>
     </widget>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>150</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;HUMIDITY&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>150</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;WIND SPEED&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>150</y>
+       <width>71</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;PRESSURE&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_weather">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+       <underline>true</underline>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>220</y>
-      <width>351</width>
+      <x>630</x>
+      <y>230</y>
+      <width>331</width>
       <height>201</height>
      </rect>
     </property>
@@ -337,7 +406,7 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>60</x>
+       <x>30</x>
        <y>20</y>
        <width>271</width>
        <height>31</height>
@@ -345,7 +414,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>14</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -371,7 +441,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -391,7 +462,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -411,7 +483,8 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -431,10 +504,10 @@
      </property>
      <property name="font">
       <font>
-       <family>Cambria</family>
-       <pointsize>11</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="layoutDirection">
@@ -455,9 +528,10 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="layoutDirection">
@@ -478,9 +552,10 @@
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
-       <weight>50</weight>
-       <bold>false</bold>
+       <family>Bahnschrift SemiBold</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
      <property name="layoutDirection">
@@ -576,7 +651,7 @@
      <rect>
       <x>710</x>
       <y>770</y>
-      <width>201</width>
+      <width>271</width>
       <height>31</height>
      </rect>
     </property>
@@ -724,8 +799,8 @@
      <rect>
       <x>30</x>
       <y>190</y>
-      <width>101</width>
-      <height>21</height>
+      <width>121</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -737,7 +812,7 @@
      </font>
     </property>
     <property name="text">
-     <string>City</string>
+     <string> City Filtering</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
@@ -745,8 +820,8 @@
      <rect>
       <x>300</x>
       <y>190</y>
-      <width>101</width>
-      <height>21</height>
+      <width>141</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -758,7 +833,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Region</string>
+     <string>Region Filtering</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_gif">
